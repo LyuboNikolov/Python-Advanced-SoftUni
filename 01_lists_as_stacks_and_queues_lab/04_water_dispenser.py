@@ -13,7 +13,7 @@ command = input()
 
 while command != "End":
     data = command.split()
-    if len(data) == 1:
+    if data[0].isdigit():
         liters_requested = int(data[0])
         person = people.popleft()
 
@@ -22,9 +22,9 @@ while command != "End":
             water -= liters_requested
         else:
             print(f"{person} must wait")
-    elif len(data) == 2:
-        _, liters_to_add = data
-        water += int(liters_to_add)
+    elif data[0] == "refill":
+        liters_to_add = int(data[1])
+        water += liters_to_add
 
     command = input()
 
