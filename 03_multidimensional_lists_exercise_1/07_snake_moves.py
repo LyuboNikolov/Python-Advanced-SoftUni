@@ -1,10 +1,15 @@
+from collections import deque
+
 rows, cols = [int(x) for x in input().split()]
-text = input()
-current_text = text
+word = list(input())
+
+word_copy = deque(word)
 
 for row in range(rows):
-    difference = text[len(current_text):]
-    current_text = current_text[:(cols - row)]
-    new_text = difference + current_text
+    while len(word_copy) < cols:
+        word_copy.extend(word)
 
-    print(new_text if row % 2 == 0 else new_text[::-1])
+    if row % 2 == 0:
+        print(*[word_copy.popleft() for _ in range(cols)], sep="")
+    else:
+        print(*[word_copy.popleft() for _ in range(cols)][::-1], sep="")
