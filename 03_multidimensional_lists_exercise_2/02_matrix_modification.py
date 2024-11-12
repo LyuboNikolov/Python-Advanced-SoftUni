@@ -1,27 +1,21 @@
-def check_valid_index(row, col):
-    if 0 <= row < size and 0 <= col < size:
-        return True
-
-
 size = int(input())
 matrix = [[int(x) for x in input().split()] for _ in range(size)]
 
-while True:
-    command = input()
+command = input().split()
 
-    if command == "END":
-        break
+while command[0] != "END":
 
-    operation, r, c, value = [int(x) if x.lstrip("-").isdigit() else x for x in command.split()]
+    operation, row, col, value = command[0], int(command[1]), int(command[2]), int(command[3])
 
-    if not check_valid_index(r, c):
+    if not (0 <= row < size and 0 <= col < size):
         print("Invalid coordinates")
-        continue
 
-    elif operation == "Add" and check_valid_index(r, c):
-        matrix[r][c] += value
+    elif operation == "Add":
+        matrix[row][col] += value
 
-    elif operation == "Subtract" and check_valid_index(r, c):
-        matrix[r][c] -= value
+    elif operation == "Subtract":
+        matrix[row][col] -= value
+
+    command = input().split()
 
 [print(*row) for row in matrix]
