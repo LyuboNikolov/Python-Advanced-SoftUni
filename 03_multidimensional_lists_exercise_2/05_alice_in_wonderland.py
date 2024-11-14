@@ -31,12 +31,11 @@ while bags_of_tea < 10:
         break
 
     new_pos = territory[alice_row][alice_col]
+    territory[alice_row][alice_col] = "*"
 
     if new_pos.isdigit():
-        bags_of_tea += int(territory[alice_row][alice_col])
-        territory[alice_row][alice_col] = "*"
+        bags_of_tea += int(new_pos)
     elif new_pos == "R":
-        territory[alice_row][alice_col] = "*"
         break
 
 if bags_of_tea >= 10:
