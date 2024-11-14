@@ -1,15 +1,15 @@
 size = int(input())
 territory = []
 
+alice_pos = []
+bags_of_tea = 0
+
 directions = {
     "up": (-1, 0),
     "down": (1, 0),
     "left": (0, -1),
     "right": (0, 1)
 }
-
-alice_pos = []
-bags_of_tea = 0
 
 for row in range(size):
     territory.append(input().split())
