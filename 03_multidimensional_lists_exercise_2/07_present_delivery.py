@@ -15,6 +15,7 @@ def eat_cookie(presents_left, nice_kids):
 
     return presents_left, nice_kids
 
+
 presents = int(input())
 size = int(input())
 
